@@ -3,7 +3,7 @@ import { AppKitButton } from "@reown/appkit/react";
 export default function Header() {
   return (
     <>
-      <div className="h-[11vh] bg-[#f5e6d3] shadow-md">
+      <div className="h-[10vh] w-[85vw] bg-[#f5e6d3] shadow-md z-10   top-[3vh] left-[50%] right-[50%] -translate-x-[50%] opacity-90 rounded-xl fixed">
         <div className="h-1/1 w-1/1 flex justify-around items-center ">
           <div className="flex  justify-around items-center">
             <img
