@@ -1,10 +1,12 @@
 type cardProps = {
+  id: number;
   city: string;
   country: string;
   hotelName: string;
   fromDate: string;
   toDate: string;
   ethPrice: number;
+  imgSrc: string;
 };
 
 export default function Card(props: cardProps) {
@@ -12,7 +14,7 @@ export default function Card(props: cardProps) {
     <div className="bg-blue-50 flex items-center  flex-col h-[100%] w-[23%] hover:scale-105 transition-transform duration-300">
       <div className=" h-[50%] w-[100%]">
         <img
-          src="https://bafybeigyia55a6tlhx5amnjjwcxcjubwrhapt6bv2p5ow5vb4q7tpobh3a.ipfs.w3s.link/?filename=sunset-7190535.jpg"
+          src={props.imgSrc}
           alt=""
           className="rounded-t-2xl h-[100%] w-[100%]"
         />
