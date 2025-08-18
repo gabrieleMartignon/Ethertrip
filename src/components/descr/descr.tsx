@@ -18,8 +18,10 @@ export default function Descr() {
           className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-white shadow-[0.3em_0.3em_0_#c96827] 
          hover:shadow-[-0.3em_-0.3em_0_#979695] bg-[#dba150]
          hover:bg-[#c96827] hover:border-[#c96827] hover:text-white w-[30%]"
+
         >
-          Book now!
+          <a href="#cardSection">
+          Book now!</a>
         </button>
       </div>
     </>

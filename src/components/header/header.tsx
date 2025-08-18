@@ -17,12 +17,14 @@ export default function Header() {
           </div>
           <div className="flex justify-between items-center h-1/1 w-1/2 ">
             <div className="flex justify-end items-center w-1/1 text-md font-bold opacity-80 cursor-pointer ">
-              <button
+             <a href="#cardSection"><button
                 className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-black shadow-[0.3em_0.3em_0_#c96827]  hover:shadow-[-0.3em_-0.3em_0_#979695] 
          hover:bg-[#c96827] hover:border-[#c96827] hover:text-white"
               >
-                Travel Deals
-              </button>
+                
+         Travel Deals
+                
+              </button></a>
               <button
                 className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-black shadow-[0.3em_0.3em_0_#c96827] 
          hover:shadow-[-0.3em_-0.3em_0_#979695] 
