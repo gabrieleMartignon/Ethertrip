@@ -1,9 +1,12 @@
 import { AppKitButton } from "@reown/appkit/react";
+import { useNavigate } from "react-router"
 
 export default function Header() {
+
+  const navigate=useNavigate()
   return (
     <>
-      <div className="h-[10vh] w-[85vw] bg-[#f5e6d3] shadow-md z-10   top-[3vh] left-[50%] right-[50%] -translate-x-[50%] opacity-90 rounded-xl fixed">
+      <div className="h-[10vh] w-[85vw] bg-[#f5e6d3] shadow-md z-10 top-[3vh] left-[50%] right-[50%] -translate-x-[50%] opacity-90 rounded-xl fixed">
         <div className="h-1/1 w-1/1 flex justify-around items-center ">
           <div className="flex  justify-around items-center">
             <img
@@ -17,22 +20,34 @@ export default function Header() {
           </div>
           <div className="flex justify-between items-center h-1/1 w-1/2 ">
             <div className="flex justify-end items-center w-1/1 text-md font-bold opacity-80 cursor-pointer ">
-             <a href="#cardSection"><button
-                className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-black shadow-[0.3em_0.3em_0_#c96827]  hover:shadow-[-0.3em_-0.3em_0_#979695] 
+              <a href="#main">
+                <button
+                  className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-black shadow-[0.3em_0.3em_0_#c96827] 
+         hover:shadow-[-0.3em_-0.3em_0_#979695] 
          hover:bg-[#c96827] hover:border-[#c96827] hover:text-white"
-              >
-                
-         Travel Deals
-                
-              </button></a>
+         onClick={() => navigate("/")}
+                >
+                  Home
+                </button>
+              </a>
+              <a href="#cardSection">
+                <button
+                  className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-black shadow-[0.3em_0.3em_0_#c96827]  hover:shadow-[-0.3em_-0.3em_0_#979695] 
+         hover:bg-[#c96827] hover:border-[#c96827] hover:text-white"
+         onClick={() => navigate("/")}
+                >
+                  Travel Deals
+                </button>
+              </a>
               <button
                 className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-black shadow-[0.3em_0.3em_0_#c96827] 
          hover:shadow-[-0.3em_-0.3em_0_#979695] 
          hover:bg-[#c96827] hover:border-[#c96827] hover:text-white"
+         onClick={() => navigate("/About")}
               >
                 About
               </button>
-              <AppKitButton className="rounded-3xl bg-gradient-to-r from-blue-400 to-blue-800 shadow-2xl" />
+              <AppKitButton className="rounded-3xl bg-gradient-to-r from-blue-400 to-blue-800 shadow-2xl" namespace="eip155" />
             </div>
           </div>
         </div>
