@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export default function TravelCardSection() {
   const [cardIndex, setCardIndex] = useState<number>(0);
-  console.log(cardIndex);
   const visibleCard = 3;
   const cardProperties = [
     {
@@ -13,7 +12,7 @@ export default function TravelCardSection() {
       hotelName: "Four Seasons Hotel George V",
       fromDate: "1 September",
       toDate: "7 September",
-      ethPrice: 0.76,
+      ethPrice: "0.76",
       imgSrc:
         "https://bafybeidqu7novp2oine3zx2b3qvttnwpr7mi3dffhrclpaajcddo7pzuje.ipfs.w3s.link/?filename=anthony-delanoix-Q0-fOL2nqZc-unsplash.jpg",
     },
@@ -24,7 +23,7 @@ export default function TravelCardSection() {
       hotelName: "Villa Agrippina Gran Meolià",
       fromDate: "8 September",
       toDate: "14 September",
-      ethPrice: 0.56,
+      ethPrice:"0.56",
       imgSrc:
         "https://bafybeicmze5lavwth6mxh5a5e2it2x2hqe22fvoqjrtrqcvaxhnlty5rnq.ipfs.w3s.link/?filename=david-kohler-VFRTXGw1VjU-unsplash.jpg",
     },
@@ -35,7 +34,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel Astoria",
       fromDate: "25 August",
       toDate: "31 August",
-      ethPrice: 0.82,
+      ethPrice: "0.82",
       imgSrc:
         "https://bafybeibp46mppsuwqmoa5fmind7ir2jkcqsrykkwvahatii7n2txqqavkm.ipfs.w3s.link/?filename=biel-morro-d0xjEv-WJQk-unsplash.jpg",
     },
@@ -46,7 +45,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel Berlin",
       fromDate: "22 September",
       toDate: "28 September",
-      ethPrice: 0.97,
+      ethPrice: "0.97",
       imgSrc:
         "https://bafybeicwfaytgxqmljkwpqvqn2x5nyqawaevcrd5vxoc4ayjma6v2zrwv4.ipfs.w3s.link/?filename=florian-wehde-1uWanmgkd5g-unsplash.jpg",
     },
@@ -57,7 +56,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel USA",
       fromDate: "1 September",
       toDate: "7 September",
-      ethPrice: 1.2,
+      ethPrice: "1.2",
       imgSrc:
         "https://bafybeihjwjox3rmfxvhwhsip6hljnz7duxwpbnrjdkwznlfods4uzmt7fy.ipfs.w3s.link/?filename=luca-bravo-TaCk3NspYe0-unsplash.jpg",
     },
@@ -68,7 +67,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel Poland",
       fromDate: "25 August",
       toDate: "31 August",
-      ethPrice: 0.97,
+      ethPrice: "0.97",
       imgSrc:
         "https://bafybeibr5dh4knayfrwwtqubmzxtcqtbtvemuuagvqp3xwbj7k2dr2z5re.ipfs.w3s.link/?filename=lasma-artmane-p6gxHYb43v0-unsplash.jpg",
     },
@@ -87,7 +86,7 @@ export default function TravelCardSection() {
   return (
     <>
       <div
-        className="w-[75vw] h-[80vh] bg-blue-50 rounded-2xl shadow-2xl flex items-center m-auto flex-col p-3"
+        className="w-[75vw] h-[80vh] bg-blue-50 rounded-2xl shadow-2xl flex items-center m-auto flex-col p-3 mb-[10vh]"
         id="cardSection"
       >
         <div className="h-[25%] w-[40%]">
@@ -100,7 +99,6 @@ export default function TravelCardSection() {
           <button
             type="button"
             onClick={prevCard}
-            disabled={cardIndex === 0}
             className="h-[50px] w-[50px] rounded-4xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-all duration-300 p-2"
           >
             <img
@@ -111,7 +109,7 @@ export default function TravelCardSection() {
           {cardProperties
             .slice(cardIndex, cardIndex + visibleCard)
             .map((cardProp) => {
-              return <Card {...cardProp} key={cardProp.id} />;
+              return <Card {...cardProp} key={cardProp.id}/>;
             })}
 
           <button

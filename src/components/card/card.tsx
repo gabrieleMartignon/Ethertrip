@@ -1,3 +1,12 @@
+import { BrowserProvider, ethers } from "ethers";
+import {
+  useAppKitProvider,
+  useAppKitAccount,
+  useAppKit,
+} from "@reown/appkit/react";
+import type { Eip1193Provider } from "ethers";
+import { useEffect, useState } from "react";
+
 type cardProps = {
   id: number;
   city: string;
@@ -5,11 +14,32 @@ type cardProps = {
   hotelName: string;
   fromDate: string;
   toDate: string;
-  ethPrice: number;
+  ethPrice: string;
   imgSrc: string;
 };
 
 export default function Card(props: cardProps) {
+  const { walletProvider } = useAppKitProvider("eip155");
+  const { address, isConnected, status } = useAppKitAccount();
+  const { open } = useAppKit();
+  const [ pendingPurchase, setPendingPurchase ] = useState<boolean>(false);
+
+  async function purchaseTravel() {
+    const provider = new BrowserProvider(walletProvider as Eip1193Provider);
+    const signer = await provider.getSigner();
+    const tx = await signer.sendTransaction({
+      to: `${import.meta.env.VITE_DEPOSIT_ADDRESS}`,
+      value: ethers.parseEther(props.ethPrice),
+    });
+    console.log(tx);
+  }
+
+  useEffect(() => {
+    if (status === "connected" && pendingPurchase) {
+      purchaseTravel();
+    }
+  }, [pendingPurchase,status]);
+
   return (
     <div className="bg-blue-50 flex items-center  flex-col h-[100%] w-[23%] hover:scale-105 transition-transform duration-300">
       <div className=" h-[50%] w-[100%]">
@@ -20,7 +50,7 @@ export default function Card(props: cardProps) {
         />
       </div>
       <div className="bg-blue-400 rounded-b-2xl h-[50%] w-[100%] font-montserrat font-bold text-white flex flex-col justify-around items-center text-xs p-2 text-shadow-md">
-        <div className="flex  justify-center items-center w-[90%] text-lg hover:scale-105 transition-transform duration-300">
+        <div className="flex justify-center items-center w-[90%] text-lg hover:scale-105 duration-300">
           <img
             width="25"
             height="25"
@@ -31,7 +61,7 @@ export default function Card(props: cardProps) {
             {props.city}, {props.country}{" "}
           </p>
         </div>
-        <div className="flex items-center w-[90%] hover:scale-105 transition-transform duration-300">
+        <div className="flex items-center w-[90%] hover:scale-105 duration-300">
           <img
             width="25"
             height="25"
@@ -41,7 +71,7 @@ export default function Card(props: cardProps) {
           />
           <p> {props.hotelName}</p>
         </div>
-        <div className="flex  items-center w-[90%] hover:scale-105 transition-transform duration-300">
+        <div className="flex  items-center w-[90%] hover:scale-105  duration-300">
           <img
             width="25"
             height="25"
@@ -55,6 +85,15 @@ export default function Card(props: cardProps) {
           className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-white shadow-[0.3em_0.3em_0_#c96827] 
          hover:shadow-[-0.3em_-0.3em_0_#979695] bg-[#dba150]
          hover:bg-[#c96827] hover:border-[#c96827] hover:text-white  flex justify-center items-center text-center text-shadow-md text-sm"
+          onClick={() => {
+            if (isConnected) {
+              setPendingPurchase(true);
+            } else {
+              open({ view: "Connect" });
+              setPendingPurchase(true);
+              
+            }
+          }}
         >
           {props.ethPrice}{" "}
           <img
