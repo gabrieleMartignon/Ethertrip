@@ -42,7 +42,7 @@ export default function TravelCardSection() {
       id: 4,
       city: "Berlin",
       country: "Germany",
-      hotelName: "Hotel Berlin",
+      hotelName: "Hotel sly Berlin",
       fromDate: "22 September",
       toDate: "28 September",
       ethPrice: "0.97",
@@ -53,7 +53,7 @@ export default function TravelCardSection() {
       id: 5,
       city: "New York",
       country: "USA",
-      hotelName: "Hotel USA",
+      hotelName: "New York Marriot Marquis",
       fromDate: "1 September",
       toDate: "7 September",
       ethPrice: "1.2",
@@ -64,7 +64,7 @@ export default function TravelCardSection() {
       id: 6,
       city: "Warsaw",
       country: "Poland",
-      hotelName: "Hotel Poland",
+      hotelName: "Focus Hotel Premium Warszawa",
       fromDate: "25 August",
       toDate: "31 August",
       ethPrice: "0.97",
@@ -75,27 +75,27 @@ export default function TravelCardSection() {
 
   const prevCard = () => {
     setCardIndex((i) => Math.max(i - 1, 0));
-    console.log(cardIndex);
+    
   };
 
   const nextCard = () => {
     setCardIndex((i) => Math.min(i + 1, cardProperties.length - visibleCard));
-    console.log(cardIndex);
+  
   };
 
   return (
     <>
       <div
-        className="w-[75vw] h-[80vh] bg-blue-50 rounded-2xl shadow-2xl flex items-center m-auto flex-col p-3 mb-[10vh]"
+        className="w-[75vw] h-[80vh] bg-blue-50 rounded-2xl shadow-2xl flex items-center m-auto flex-col p-3 mb-[7vh]"
         id="cardSection"
       >
         <div className="h-[25%] w-[40%]">
-          <h1 className="font-montserrat font-bold text-white text-4xl bg-blue-400 rounded-xl p-2 flex justify-center items-center text-center text-shadow-md ">
-            Your next adventure <br />
-            awaits you
+          <h1 className="font-montserrat font-bold text-white text-4xl bg-blue-400 rounded-xl p-2 flex justify-center items-center text-center text-shadow-md flex-col">
+           <i>  Your next adventure <br />
+            awaits you</i>
           </h1>
         </div>
-        <div className="h-[75%] w-[100%] flex justify-around items-center border-3 border-blue-300 transition-all duration-300 p-3 rounded-2xl">
+        <div className="h-[75%] w-[100%] flex justify-around items-center  border-blue-300 transition-all duration-300 p-5 rounded-2xl">
           <button
             type="button"
             onClick={prevCard}
