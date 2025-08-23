@@ -3,9 +3,11 @@ import {
   useAppKitProvider,
   useAppKitAccount,
   useAppKit,
+  useAppKitBalance,
 } from "@reown/appkit/react";
 import type { Eip1193Provider } from "ethers";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import AlertMessage from "../alert/alert";
 
 type cardProps = {
   id: number;
@@ -20,13 +22,18 @@ type cardProps = {
 
 export default function Card(props: cardProps) {
   const { walletProvider } = useAppKitProvider("eip155");
-  const { address, isConnected, status } = useAppKitAccount();
+  const { isConnected, status } = useAppKitAccount();
   const { open } = useAppKit();
-  const [ pendingPurchase, setPendingPurchase ] = useState<boolean>(false);
+  const [pendingPurchase, setPendingPurchase] = useState<boolean>(false);
+  const { fetchBalance } = useAppKitBalance();
+  const [balance, setBalance] = useState<string>();
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+  const alertRef = useRef<HTMLElement>(null)
 
   async function purchaseTravel() {
     const provider = new BrowserProvider(walletProvider as Eip1193Provider);
     const signer = await provider.getSigner();
+
     const tx = await signer.sendTransaction({
       to: `${import.meta.env.VITE_DEPOSIT_ADDRESS}`,
       value: ethers.parseEther(props.ethPrice),
@@ -38,9 +45,24 @@ export default function Card(props: cardProps) {
     if (status === "connected" && pendingPurchase) {
       purchaseTravel();
     }
-  }, [pendingPurchase,status]);
+    setPendingPurchase(false);
+  }, [pendingPurchase, status]);
+
+  useEffect(()=>{
+    if(showAlert && alertRef.current){
+      console.log(showAlert)
+       alertRef.current.classList.add("-translate-x-[120%]");
+       setTimeout(()=>{
+       if (alertRef.current) {
+         alertRef.current.classList.remove("-translate-x-[120%]");
+       }
+       },3000)
+    }
+    setShowAlert(false)
+  },[showAlert])
 
   return (
+    <>
     <div className="bg-blue-50 flex items-center  flex-col h-[100%] w-[23%] hover:scale-105 transition-transform duration-300">
       <div className=" h-[50%] w-[100%]">
         <img
@@ -85,14 +107,21 @@ export default function Card(props: cardProps) {
           className="font-montserrat font-bold cursor-pointer align-middle bg-center py-2 px-4 transition-all duration-300 rounded-lg mr-5 border-[#979695] text-white shadow-[0.3em_0.3em_0_#c96827] 
          hover:shadow-[-0.3em_-0.3em_0_#979695] bg-[#dba150]
          hover:bg-[#c96827] hover:border-[#c96827] hover:text-white  flex justify-center items-center text-center text-shadow-md text-sm"
-          onClick={() => {
+          onClick={async () => {
             if (isConnected) {
-              setPendingPurchase(true);
-            } else {
+              const b = await fetchBalance();
+              setBalance(b.data?.balance);
+              if (balance !== undefined &&props.ethPrice >= balance) {
+                setShowAlert(true)
+              } else {
+               setPendingPurchase(true)
+              }
+            }
+             else {
               open({ view: "Connect" });
               setPendingPurchase(true);
-              
             }
+           
           }}
         >
           {props.ethPrice}{" "}
@@ -104,6 +133,13 @@ export default function Card(props: cardProps) {
           />
         </button>
       </div>
+      
     </div>
+    <AlertMessage
+        ref={alertRef}
+        error="Insufficient Funds"
+        message="Your wallet does't have the necessary Eth to complete the transaction"
+      /> 
+      </>
   );
 }

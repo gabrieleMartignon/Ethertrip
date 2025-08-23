@@ -8,7 +8,7 @@ export default function Footer() : ReactElement {
                 <p className="flex items-center">
                     Project developed in collaboration with
                     <a
-                        className="ml-2 bg-gradient-to-l from-green-300 to-green-400 rounded-md shadow-xl text-shadow-lg cursor-pointer py-1 px-2 font-bold"
+                        className="ml-2 bg-gradient-to-l from-green-300 to-green-400 rounded-md shadow-xl text-shadow-lg cursor-pointer py-1 px-2 font-bold hover:scale-110 transition-all duration-300"
                         href="https://www.start2impact.it/"
                         target="_blank"
                         rel="noopener noreferrer"
