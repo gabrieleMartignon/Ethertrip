@@ -12,7 +12,7 @@ export default function TravelCardSection() {
       hotelName: "Four Seasons Hotel George V",
       fromDate: "1 September",
       toDate: "7 September",
-      ethPrice: "0.76",
+      ethPrice: "0.01",
       imgSrc:
         "https://bafybeidqu7novp2oine3zx2b3qvttnwpr7mi3dffhrclpaajcddo7pzuje.ipfs.w3s.link/?filename=anthony-delanoix-Q0-fOL2nqZc-unsplash.jpg",
     },

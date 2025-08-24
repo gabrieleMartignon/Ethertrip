@@ -4,6 +4,7 @@ import { useNavigate } from "react-router"
 export default function Header() {
 
   const navigate=useNavigate()
+  
   return (
     <>
       <div className="h-[10vh] w-[85vw] bg-[#f5e6d3] shadow-md z-10 top-[3vh] left-[50%] right-[50%] -translate-x-[50%] opacity-90 rounded-xl fixed">

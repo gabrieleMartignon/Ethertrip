@@ -1,5 +1,5 @@
 import ContentBox from "../contentbox/contentbox";
-import BodyImg from "../mainsectionimgs/mainsectionimgs";
+import BodyImg from "../bodyimgs/bodyimgs";
 import Descr from "../descr/descr";
 
 export default function MainSection() {
