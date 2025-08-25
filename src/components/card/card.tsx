@@ -131,9 +131,9 @@ export default function Card (props: cardProps) {
                 } else {
                   setPendingPurchase(true);
                 }
-              } else {
-                await open({ view: "Connect" });
-                setPendingPurchase(true);
+              } else {  
+               open({ view: "Connect" })
+                
               }
             }}
           >
