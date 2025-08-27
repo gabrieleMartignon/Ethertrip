@@ -1,6 +1,6 @@
 import { AppKitButton } from "@reown/appkit/react";
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="h-[10vh] sm:w-[85vw] bg-[#f5e6d3] shadow-md z-10 top-[3vh] left-[50%] right-[50%] -translate-x-[50%] opacity-90 rounded-xl fixed w-[92vw]">
+      <div className="h-[10vh] sm:w-[85vw] bg-[#f5e6d3] shadow-md z-10 top-[3vh] left-[50%] right-[50%] -translate-x-[50%] opacity-90 rounded-xl fixed w-[92vw] m-auto">
         <div className="h-1/1 w-1/1 flex justify-around items-center ">
           <div className="flex  justify-around items-center ">
             <img
@@ -84,7 +84,7 @@ export default function Header() {
                   </a>
                   <a
                     onClick={() => navigate("/About")}
-                    className="block px-4 py-2 text-sm  rounded-md"
+                    className="block px-4 py-2 text-sm rounded-md"
                   >
                     About
                   </a>

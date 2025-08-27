@@ -51,9 +51,9 @@ export default function TravelCardSection() {
     },
     {
       id: 5,
-      city: "New York",
+      city: "NY",
       country: "USA",
-      hotelName: "New York Marriot Marquis",
+      hotelName: "Hotel Marriot Marquis",
       fromDate: "1 September",
       toDate: "7 September",
       ethPrice: "1.2",
@@ -86,20 +86,20 @@ export default function TravelCardSection() {
   return (
     <>
       <div
-        className="w-[75vw] h-[80vh] bg-blue-50 rounded-2xl shadow-2xl flex items-center m-auto flex-col p-3 mb-[7vh]"
+        className="md:w-[75vw] w-[95vw] md:h-[80vh] h-[70vh] bg-blue-50 rounded-2xl shadow-2xl flex items-center m-auto flex-col md:p-3 p-1 mb-[7vh]"
         id="cardSection"
       >
-        <div className="h-[25%] w-[40%]">
-          <h1 className="font-montserrat font-bold text-white text-4xl bg-blue-400 rounded-xl p-2 flex justify-center items-center text-center text-shadow-md flex-col">
+        <div className="h-[25%] md:w-[40%] w-[60%]">
+          <h1 className="font-montserrat font-bold text-white lg:text-4xl text-2xl bg-blue-400 rounded-xl p-2 flex justify-center items-center text-center text-shadow-md flex-col">
            <i>  Your next adventure <br />
             awaits you</i>
           </h1>
         </div>
-        <div className="h-[75%] w-[100%] flex justify-around items-center  border-blue-300 transition-all duration-300 p-5 rounded-2xl">
+        <div className="h-[75%] w-[100%] flex justify-around items-center transition-all duration-300 md:p-5 p-1 rounded-2xl ">
           <button
             type="button"
             onClick={prevCard}
-            className="h-[50px] w-[50px] rounded-4xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-all duration-300 p-2"
+            className="h-[30px] w-[30px] rounded-4xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-all duration-300 p-2"
           >
             <img
               src="https://img.icons8.com/?size=100&id=39944&format=png&color=000000"
@@ -115,7 +115,7 @@ export default function TravelCardSection() {
           <button
             type="button"
             onClick={nextCard}
-            className="h-[50px] w-[50px] rounded-4xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-all duration-300 p-2"
+            className="h-[30px] w-[30px] rounded-4xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-all duration-300 p-2"
           >
             <img
               src="https://img.icons8.com/?size=100&id=39969&format=png&color=000000"
