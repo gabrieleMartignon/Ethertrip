@@ -13,18 +13,18 @@ export default function SuccessPage () {
         <>
        <Header/>
        <div className="w-[83vw] h-[65vh] flex m-auto justify-around items-center bg-blue-50 rounded-2xl shadow-md mt-[17vh] font-montserrat text-justify font-semibold flex-col ">
-        <div className=" p-3 flex justify-center items-center bg-blue-400 rounded-xl text-white text-3xl text-shadow-md">
+        <div className="p-3 flex justify-center items-center bg-blue-400 rounded-xl text-white text-3xl text-shadow-md">
             <h1>Your Booking</h1>
         </div>
         <div className="w-[100%]  flex justify-evenly items-center p-10 ">
         <div className="h-[100%]">
-            <img src={card.imgSrc} alt="Booking img" className="w-[300px] h-[300px] rounded-xl"  />
+            <img src={card.imgSrc} alt="Booking img" className="w-[300px] md:h-[300px] h-[200px] rounded-xl"  />
         </div>
-        <div className="h-[100%]  p-3 rounded-xl text-lg ">
+        <div className="h-[100%]  p-3 rounded-xl md:text-lg text-base ">
             <h1>{card.city + ", " + card.country}</h1>
-            <h1>You will stay in {card.hotelName}</h1>
+            <h1>You will stay in: {card.hotelName}</h1>
             <h1>From {card.fromDate + " to " + card.toDate}</h1>
-            <h1><a href={"https://sepolia.ethplorer.io/tx/"+hash} className="underline hover:" target="_blank">Check the transaction here!</a></h1>
+            <h1><a href={"https://sepolia.ethplorer.io/tx/"+hash} className="underline hover:" target="_blank">Click here to check the transaction!</a></h1>
             
         </div>
         </div>
