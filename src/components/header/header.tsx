@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="h-[10vh] sm:w-[85vw] bg-[#f5e6d3] shadow-md z-10 top-[3vh] left-[50%] right-[50%] -translate-x-[50%] opacity-90 rounded-xl fixed w-[92vw] m-auto">
+      <div className="min-h-[60px] h-[10vh] sm:w-[85vw] bg-[#f5e6d3] shadow-md z-10 top-[3vh] left-[50%] right-[50%] -translate-x-[50%] opacity-90 rounded-xl fixed min-w-[400px] w-[92vw] scale-80 sm:scale-100 m-auto">
         <div className="h-1/1 w-1/1 flex justify-around items-center ">
           <div className="flex  justify-around items-center ">
             <img

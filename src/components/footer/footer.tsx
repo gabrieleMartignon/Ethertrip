@@ -4,7 +4,7 @@ import type {ReactElement } from "react";
 export default function Footer() : ReactElement {
     return (
         <div className="flex justify-center items-center h-[20vh] ">
-            <div className="sm:h-[10vh] h-[8vh] w-[85vw] bg-[#f5e6d3] shadow-md opacity-90 rounded-xl font-montserrat flex justify-evenly items-center font-semibold md:text-base sm:text-xs text-[8px]">
+            <div className="sm:h-[10vh] h-[8vh] w-[85vw] bg-[#f5e6d3] shadow-md opacity-90 rounded-xl font-montserrat flex justify-evenly items-center font-semibold md:text-base sm:text-xs text-[8px] min-h-[60px]">
                 <p className="flex items-center sm:p-0 p-7">
                     Project developed in collaboration with
                     <a

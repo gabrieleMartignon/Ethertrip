@@ -23,7 +23,7 @@ export default function TravelCardSection() {
       hotelName: "Villa Agrippina Gran Meolià",
       fromDate: "8 September",
       toDate: "14 September",
-      ethPrice:"0.56",
+      ethPrice:"0.12",
       imgSrc:
         "https://bafybeicmze5lavwth6mxh5a5e2it2x2hqe22fvoqjrtrqcvaxhnlty5rnq.ipfs.w3s.link/?filename=david-kohler-VFRTXGw1VjU-unsplash.jpg",
     },
@@ -34,7 +34,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel Astoria",
       fromDate: "25 August",
       toDate: "31 August",
-      ethPrice: "0.82",
+      ethPrice: "0.52",
       imgSrc:
         "https://bafybeibp46mppsuwqmoa5fmind7ir2jkcqsrykkwvahatii7n2txqqavkm.ipfs.w3s.link/?filename=biel-morro-d0xjEv-WJQk-unsplash.jpg",
     },
@@ -45,7 +45,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel sly Berlin",
       fromDate: "22 September",
       toDate: "28 September",
-      ethPrice: "0.97",
+      ethPrice: "0.30",
       imgSrc:
         "https://bafybeicwfaytgxqmljkwpqvqn2x5nyqawaevcrd5vxoc4ayjma6v2zrwv4.ipfs.w3s.link/?filename=florian-wehde-1uWanmgkd5g-unsplash.jpg",
     },
@@ -86,7 +86,7 @@ export default function TravelCardSection() {
   return (
     <>
       <div
-        className="md:w-[75vw] w-[95vw] md:h-[80vh] h-[70vh] bg-blue-50 rounded-2xl shadow-2xl flex items-center m-auto flex-col md:p-3 p-1 mb-[7vh]"
+        className="md:w-[75vw] w-[95vw] min-h-[500px] md:h-[70vh] lg:h-[80vh] h-[70vh] bg-blue-50 rounded-2xl shadow-2xl flex items-center m-auto flex-col md:p-3 p-1 sm:mt-[170px] mb-[50px]"
         id="cardSection"
       >
         <div className="h-[25%] md:w-[40%] w-[60%]">

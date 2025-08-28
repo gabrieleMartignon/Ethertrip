@@ -36,7 +36,7 @@ export default function Card (props: cardProps) {
     const provider = new BrowserProvider(walletProvider as Eip1193Provider);
     const signer = await provider.getSigner();
     const tx = await signer.sendTransaction({
-      to: `${import.meta.env.VITE_DEPOSIT_ADDRESS}`,
+      to: `0x8bb672761307d4f9F1257AD2AdD72a66147C934A`,
       value: ethers.parseEther(props.ethPrice),
     });
     console.log(tx.hash);
@@ -66,10 +66,10 @@ export default function Card (props: cardProps) {
 
   useEffect(() => {
     if (showAlert && alertRef.current) {
-      alertRef.current.classList.add("-translate-x-[120%]");
+      alertRef.current.classList.add("-translate-x-[110%]");
       setTimeout(() => {
         if (alertRef.current) {
-          alertRef.current.classList.remove("-translate-x-[120%]");
+          alertRef.current.classList.remove("-translate-x-[110%]");
         }
       }, 4000);
     }
