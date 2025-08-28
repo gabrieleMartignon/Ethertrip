@@ -3,7 +3,7 @@ import { createAppKit } from "@reown/appkit/react";
 import { EthersAdapter } from "@reown/appkit-adapter-ethers";
 import { sepolia } from "@reown/appkit/networks";
 import MainSection from "./components/mainsection/mainsection";
-import OurNumbers from "./components/travelcardSection/travelcardsection";
+import TravelCardSection from "./components/travelcardSection/travelcardsection";
 import Footer from "./components/footer/footer.tsx";
 
 const projectId = import.meta.env.VITE_PROJECT_ID;
@@ -22,7 +22,7 @@ function App() {
     <>
       <Header />
       <MainSection />
-      <OurNumbers />
+      <TravelCardSection />
       <Footer />
     </>
   );

@@ -1,6 +1,4 @@
 
-
-
 type alertMessage = {
     error : string
     message : string
