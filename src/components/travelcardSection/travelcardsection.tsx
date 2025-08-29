@@ -1,9 +1,9 @@
 import Card from "../card/card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TravelCardSection() {
   const [cardIndex, setCardIndex] = useState<number>(0);
-  const visibleCard = 3;
+  let [visibleCard, setVisibleCard] = useState<number>(3);
   const cardProperties = [
     {
       id: 1,
@@ -23,7 +23,7 @@ export default function TravelCardSection() {
       hotelName: "Villa Agrippina Gran Meolià",
       fromDate: "8 September",
       toDate: "14 September",
-      ethPrice:"0.12",
+      ethPrice: "0.12",
       imgSrc:
         "https://bafybeicmze5lavwth6mxh5a5e2it2x2hqe22fvoqjrtrqcvaxhnlty5rnq.ipfs.w3s.link/?filename=david-kohler-VFRTXGw1VjU-unsplash.jpg",
     },
@@ -73,14 +73,26 @@ export default function TravelCardSection() {
     },
   ];
 
+  const handleResize = () => {
+    if (window.innerWidth > 700) {
+      setVisibleCard(3);
+    } else {
+      setVisibleCard(2);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const prevCard = () => {
     setCardIndex((i) => Math.max(i - 1, 0));
-    
   };
 
   const nextCard = () => {
     setCardIndex((i) => Math.min(i + 1, cardProperties.length - visibleCard));
-  
   };
 
   return (
@@ -91,8 +103,11 @@ export default function TravelCardSection() {
       >
         <div className="h-[25%] md:w-[40%] w-[60%]">
           <h1 className="font-montserrat font-bold text-white lg:text-4xl text-2xl bg-blue-400 rounded-xl p-2 flex justify-center items-center text-center text-shadow-md flex-col">
-           <i>  Your next adventure <br />
-            awaits you</i>
+            <i>
+              {" "}
+              Your next adventure <br />
+              awaits you
+            </i>
           </h1>
         </div>
         <div className="h-[75%] w-[100%] flex justify-around items-center transition-all duration-300 md:p-5 p-1 rounded-2xl ">
@@ -109,7 +124,7 @@ export default function TravelCardSection() {
           {cardProperties
             .slice(cardIndex, cardIndex + visibleCard)
             .map((cardProp) => {
-              return <Card {...cardProp} key={cardProp.id}/>;
+              return <Card {...cardProp} key={cardProp.id} />;
             })}
 
           <button
