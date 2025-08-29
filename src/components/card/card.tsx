@@ -78,7 +78,7 @@ export default function Card (props: cardProps) {
 
   return (
     <>
-      <div className="bg-blue-50 flex items-center flex-col md:h-[100%] h-[80%] lg:w-[23%] w-[30%] hover:scale-105 transition-transform duration-300 lg:scale-100 scale-90">
+      <div className="bg-blue-50 flex items-center flex-col md:h-[100%] h-[80%] lg:w-[23%] sm:w-[30%] w-[60%] hover:scale-105 transition-transform duration-300 lg:scale-100 scale-90">
         <div className=" h-[50%] w-[100%]">
           <img
             src={props.imgSrc}
