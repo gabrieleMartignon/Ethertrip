@@ -94,7 +94,7 @@ export default function Card (props: cardProps) {
               src="https://img.icons8.com/ios/50/marker--v1.png"
               alt="marker--v1"
             />
-            <p className="lg:text-lg text-[12px] w-[100%]">
+            <p className="lg:text-lg sm:text-[12px] text-[9px] w-[100%]">
               {props.city}, {props.country}
             </p>
           </div>
