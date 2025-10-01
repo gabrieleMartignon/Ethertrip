@@ -1,4 +1,4 @@
-export default function BodyImg() {
+export default function BodyImgs() {
   return (
     <div className="h-[50%] sm:h-[90%] md:w-[35vw] flex md:flex-wrap flex-nowrap w-[100%] items-center">
       <div className="flex justify-center items-center h-[100%] w-[100%] md:w-[50%] md:h-[40%] lg:h-[50%]">

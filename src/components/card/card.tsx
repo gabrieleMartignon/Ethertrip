@@ -7,10 +7,10 @@ import {
 } from "@reown/appkit/react";
 import type { Eip1193Provider } from "ethers";
 import { useEffect, useState, useRef } from "react";
-import AlertMessage from "../alert/alert";
+import Alert from "../alert/alert";
 import {useNavigate} from "react-router-dom"
 
-type cardProps = {
+export type cardProps = {
   id: number;
   city: string;
   country: string;
@@ -23,7 +23,7 @@ type cardProps = {
 
 export default function Card (props: cardProps) {
   const { walletProvider } = useAppKitProvider("eip155");
-  const { isConnected, status } = useAppKitAccount();
+  const { isConnected, status, address } = useAppKitAccount();
   const { open } = useAppKit();
   const [pendingPurchase, setPendingPurchase] = useState<boolean>(false);
   const { fetchBalance } = useAppKitBalance();
@@ -40,7 +40,8 @@ export default function Card (props: cardProps) {
       value: ethers.parseEther(props.ethPrice),
     });
     console.log(tx.hash);
-    navigate("/Success", {state: {
+    navigate("/Bookings", {state: {
+      address : address,
       hash : tx.hash,
       card :{
       id: props.id,
@@ -147,7 +148,7 @@ export default function Card (props: cardProps) {
           </button>
         </div>
       </div>
-      <AlertMessage
+      <Alert
         ref={alertRef}
         error="Insufficient Funds"
         message="Your wallet does't have the necessary Eth to complete the transaction"

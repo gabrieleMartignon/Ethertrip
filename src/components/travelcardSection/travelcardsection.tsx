@@ -12,7 +12,7 @@ export default function TravelCardSection() {
       hotelName: "Four Seasons Hotel George V",
       fromDate: "1 September",
       toDate: "7 September",
-      ethPrice: "0.01",
+      ethPrice: "0.03",
       imgSrc:
         "https://bafybeidqu7novp2oine3zx2b3qvttnwpr7mi3dffhrclpaajcddo7pzuje.ipfs.w3s.link/?filename=anthony-delanoix-Q0-fOL2nqZc-unsplash.jpg",
     },
@@ -23,7 +23,7 @@ export default function TravelCardSection() {
       hotelName: "Villa Agrippina Gran Meolià",
       fromDate: "8 September",
       toDate: "14 September",
-      ethPrice: "0.12",
+      ethPrice: "0.01",
       imgSrc:
         "https://bafybeicmze5lavwth6mxh5a5e2it2x2hqe22fvoqjrtrqcvaxhnlty5rnq.ipfs.w3s.link/?filename=david-kohler-VFRTXGw1VjU-unsplash.jpg",
     },
@@ -34,7 +34,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel Astoria",
       fromDate: "25 August",
       toDate: "31 August",
-      ethPrice: "0.52",
+      ethPrice: "0.02",
       imgSrc:
         "https://bafybeibp46mppsuwqmoa5fmind7ir2jkcqsrykkwvahatii7n2txqqavkm.ipfs.w3s.link/?filename=biel-morro-d0xjEv-WJQk-unsplash.jpg",
     },
@@ -45,7 +45,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel sly Berlin",
       fromDate: "22 September",
       toDate: "28 September",
-      ethPrice: "0.30",
+      ethPrice: "0.001",
       imgSrc:
         "https://bafybeicwfaytgxqmljkwpqvqn2x5nyqawaevcrd5vxoc4ayjma6v2zrwv4.ipfs.w3s.link/?filename=florian-wehde-1uWanmgkd5g-unsplash.jpg",
     },
@@ -56,7 +56,7 @@ export default function TravelCardSection() {
       hotelName: "Hotel Marriot Marquis",
       fromDate: "1 September",
       toDate: "7 September",
-      ethPrice: "1.2",
+      ethPrice: "0.03",
       imgSrc:
         "https://bafybeihjwjox3rmfxvhwhsip6hljnz7duxwpbnrjdkwznlfods4uzmt7fy.ipfs.w3s.link/?filename=luca-bravo-TaCk3NspYe0-unsplash.jpg",
     },
@@ -67,7 +67,7 @@ export default function TravelCardSection() {
       hotelName: "Focus Hotel Premium Warszawa",
       fromDate: "25 August",
       toDate: "31 August",
-      ethPrice: "0.97",
+      ethPrice: "0.02",
       imgSrc:
         "https://bafybeibr5dh4knayfrwwtqubmzxtcqtbtvemuuagvqp3xwbj7k2dr2z5re.ipfs.w3s.link/?filename=lasma-artmane-p6gxHYb43v0-unsplash.jpg",
     },

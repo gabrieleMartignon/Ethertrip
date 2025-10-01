@@ -5,7 +5,7 @@ type alertMessage = {
     ref : any
 }
 
-export default function AlertMessage (props : alertMessage) {
+export default function Alert (props : alertMessage) {
   
     return (
         <div className="h-[100px] w-[350px] border-3 border-blue-300 bg-white fixed top-2/12 left-12/12 z-10 p-2 rounded-xl flex justify-center items-center text-black transition-all duration-250 transform"
