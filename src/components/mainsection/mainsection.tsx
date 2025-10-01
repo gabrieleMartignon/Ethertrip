@@ -1,5 +1,5 @@
 import ContentBox from "../contentbox/contentbox";
-import BodyImg from "../bodyimgs/bodyimgs";
+import BodyImgs from "../bodyimgs/bodyimgs";
 import Descr from "../descr/descr";
 
 export default function MainSection() {
@@ -12,7 +12,7 @@ export default function MainSection() {
         <ContentBox>
           <Descr />
         </ContentBox>
-        <BodyImg />
+        <BodyImgs />
       </div>
     </div>
   );
