@@ -15,7 +15,6 @@ export default function Bookings() {
   const [bookings, setBookings] = useState<bookingType[]>([]);
   let location = useLocation();
   const { address } = useAppKitAccount();
-
   const newBooking: bookingType | null = location.state
     ? {
         hash: location.state?.hash ?? null,
@@ -24,7 +23,7 @@ export default function Bookings() {
       }
     : null;
 
-  // 1. when address change load bookings form localStorage
+
   useEffect(() => {
     if (address) {
       const stored = localStorage.getItem(address);
@@ -36,20 +35,26 @@ export default function Bookings() {
     }
   }, [address]);
 
-  // 2. if new booking occur, add and save on localStorag
+  
   useEffect(() => {
-    if (address && newBooking) {
-      setBookings((prev) => {
-        const updated = [...prev, newBooking];
-        localStorage.setItem(address, JSON.stringify(updated));
-        location.state = null;
-        return updated;
-      });
-    }
-    if (address === null || address === undefined) {
-      setBookings([]);
-    }
-  }, [address]);
+  if (address && newBooking) {
+    setBookings((prev) => {
+      const alreadyExists = prev.some(
+        (b) => b.hash === newBooking.hash
+      );
+      if (alreadyExists) return prev; 
+
+      const updated = [...prev, newBooking];
+      localStorage.setItem(address, JSON.stringify(updated));
+      location.state = null;
+      return updated;
+    });
+  }
+  if (!address) {
+    setBookings([]);
+  }
+}, [address, newBooking]);
+
 
   return (
     <>
@@ -69,10 +74,7 @@ export default function Bookings() {
         )}
         <div className="w-[100%] flex md:flex-row flex-col h-[100%] gap-4 p-5 text-sm justify-center flex-wrap">
           {bookings.map((booking, i) => (
-            <div
-              key={i}
-              className="flex md:h-[45%] md:w-[50%] rounded-xl p-2 "
-            >
+            <div key={i} className="flex md:h-[45%] md:w-[50%] rounded-xl p-2 ">
               <div className=" text-[10px] md:text-xs flex flex-col w-[100%] justify-around border-3 border-white shadow-2xl rounded-2xl  text-gray-700 p-2 ">
                 <h1 className="flex mb-1">
                   <img
@@ -84,7 +86,6 @@ export default function Bookings() {
                   {booking.card?.city}
                 </h1>
                 <h1 className="flex mb-1">
-                  
                   <img
                     width="18"
                     height="18"
@@ -102,7 +103,13 @@ export default function Bookings() {
                   />
                   {booking.card?.hotelName}
                 </h1>
-                <h1 className="flex"><img width="18" height="18" src="https://img.icons8.com/ios/50/ethereum.png" alt="ethereum"/>
+                <h1 className="flex">
+                  <img
+                    width="18"
+                    height="18"
+                    src="https://img.icons8.com/ios/50/ethereum.png"
+                    alt="ethereum"
+                  />
                   <a
                     href={
                       booking.hash

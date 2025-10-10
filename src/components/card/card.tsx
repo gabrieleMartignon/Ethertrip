@@ -38,8 +38,7 @@ export default function Card (props: cardProps) {
     const tx = await signer.sendTransaction({
       to: `0x8bb672761307d4f9F1257AD2AdD72a66147C934A`,
       value: ethers.parseEther(props.ethPrice),
-    });
-    console.log(tx.hash);
+    })
     navigate("/Bookings", {state: {
       address : address,
       hash : tx.hash,
@@ -54,6 +53,7 @@ export default function Card (props: cardProps) {
       imgSrc: props.imgSrc,
 
       }
+    
     }})
    
   }
@@ -76,6 +76,8 @@ export default function Card (props: cardProps) {
     }
     setShowAlert(false);
   }, [showAlert]);
+
+
 
   return (
     <>
@@ -153,6 +155,7 @@ export default function Card (props: cardProps) {
         error="Insufficient Funds"
         message="Your wallet does't have the necessary Eth to complete the transaction"
       />
+     
     </>
   );
 }
